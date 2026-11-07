@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="A little something for Tedd.">
+  <title>A Little Something for Tedd</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="stars" aria-hidden="true"></div>
+  <div class="progress-track"><span class="progress-bar"></span></div>
+
+  <header class="site-header" aria-label="Site navigation">
+    <a class="brand" href="#welcome" aria-label="Back to the beginning">T<span>•</span></a>
+    <nav class="desktop-nav">
+      <a href="#little-things">The little things</a>
+      <a href="#pause">A thoughtful pause</a>
+      <a href="#letter">The letter</a>
+      <a href="#closing">One last thing</a>
+    </nav>
+    <div class="music-player" aria-label="Background soundtrack">
+      <button class="music-control play-control" type="button" aria-label="Play background music" aria-pressed="false">▶</button>
+      <div class="music-track"><span class="music-label">Hopeless Romantic</span><small>KWN · background soundtrack</small></div>
+      <button class="music-control mute-control" type="button" aria-label="Mute background music" aria-pressed="false">sound</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero screen" id="welcome">
+      <div class="hero-orbit orbit-one"></div>
+      <div class="hero-orbit orbit-two"></div>
+      <div class="hero-content reveal">
+        <p class="eyebrow">A little corner of the internet · for Tedd</p>
+        <p class="hero-kicker">Well, look who's having a birthday.</p>
+        <h1>Tedd,<br><em>this one's for you.</em></h1>
+        <p class="hero-copy">Some people are simply worth celebrating.</p>
+        <div class="hero-actions">
+          <button class="button button-primary enter-button" type="button">Enter your little universe ♡</button>
+        </div>
+        <p class="music-invitation">There's a little music waiting for you.</p>
+      </div>
+      <div class="scroll-cue"><span></span> scroll when you're ready</div>
+    </section>
+
+    <section class="intro section-pad" id="intro">
+      <div class="section-number">01 <span>THE BEGINNING</span></div>
+      <div class="intro-grid journal-card">
+        <div class="reveal">
+          <p class="eyebrow">A very small celebration</p>
+          <h2>Today deserves<br><em>a little something special.</em></h2>
+        </div>
+        <div class="intro-note reveal">
+          <span class="quote-mark">“</span>
+          <p>Tedd, I made you a little something. Nothing too loud — just a quiet corner for all the things that are difficult to say in passing.</p>
+          <span class="note-signoff">— from someone glad you're here</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="things section-pad" id="little-things">
+      <div class="section-heading reveal">
+        <div class="section-number">02 <span>THE LITTLE THINGS</span></div>
+        <p class="eyebrow">A few things I wanted to say.</p>
+        <h2>The things that<br><em>make you, you.</em></h2>
+      </div>
+      <div class="appreciation-grid" id="appreciation-grid"></div>
+    </section>
+
+    <section class="pause screen" id="pause">
+      <div class="pause-glow"></div>
+      <div class="pause-content journal-card reveal">
+        <p class="eyebrow">03 · A THOUGHTFUL PAUSE</p>
+        <div class="pause-line"></div>
+        <blockquote>Isn't it interesting how some people become part of your everyday life without either of you really planning it?</blockquote>
+        <button class="button button-ghost continue-button" type="button">Keep going <span>↓</span></button>
+      </div>
+    </section>
+
+    <section class="words section-pad" id="memories">
+      <div class="section-heading split-heading reveal">
+        <div>
+          <div class="section-number">04 <span>WORDS TO KEEP</span></div>
+          <h2>Words that deserve<br><em>their own space.</em></h2>
+        </div>
+        <p>A small collection of thoughts for the quiet moments, the ordinary days and everything still ahead.</p>
+      </div>
+      <div class="words-grid" id="words-grid"></div>
+      <aside class="bonus-song journal-card">
+        <p class="eyebrow">A separate little offering</p>
+        <h3>Another song for you</h3>
+        <p>“Blessed” by Daniel Caesar — for a different kind of moment.</p>
+        <a class="button button-ghost" href="https://open.spotify.com/search/Blessed%20Daniel%20Caesar" target="_blank" rel="noopener noreferrer">Listen officially <span>↗</span></a>
+      </aside>
+    </section>
+
+    <section class="letter-section section-pad" id="letter">
+      <div class="section-number">05 <span>THE LETTER</span></div>
+      <div class="letter-heading reveal">
+        <p class="eyebrow">Open when you have a minute</p>
+        <h2>Something I wanted<br><em>you to know.</em></h2>
+      </div>
+      <div class="envelope-wrap reveal">
+        <button class="envelope" type="button" aria-expanded="false" aria-label="Open the birthday letter">
+          <span class="envelope-back"></span>
+          <span class="envelope-paper"><span class="paper-label">For Tedd, with appreciation</span></span>
+          <span class="envelope-flap"></span>
+          <span class="envelope-front"></span>
+          <span class="wax-seal">T</span>
+        </button>
+        <p class="envelope-prompt">click to open your letter</p>
+      </div>
+      <article class="letter-paper" aria-hidden="true">
+        <div class="letter-top"><span>08 / 11</span><span>A LITTLE SOMETHING FOR TEDD</span></div>
+        <div id="letter-content"></div>
+        <div class="letter-bottom">with appreciation <span>✦</span></div>
+      </article>
+    </section>
+
+    <section class="surprise section-pad" id="surprise">
+      <div class="surprise-inner journal-card reveal">
+        <div class="section-number">06 <span>THE UNEXPECTED SURPRISE</span></div>
+        <p class="eyebrow">One last little secret</p>
+        <h2>One more<br><em>thing...</em></h2>
+        <p class="surprise-intro">There is always one more thing worth saying.</p>
+        <button class="button button-primary surprise-button" type="button">One more thing... <span>✦</span></button>
+        <p class="surprise-message" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="closing screen" id="closing">
+      <div class="closing-stars" aria-hidden="true"></div>
+      <div class="closing-content reveal">
+        <p class="eyebrow">07 · UNTIL NEXT TIME</p>
+        <h2>Here's to another year of <em>becoming, discovering, learning</em> and experiencing life.</h2>
+        <div class="closing-divider">✦</div>
+        <p class="closing-wish">Happy birthday, Tedd.<br><em>I hope this year is kind to you.</em></p>
+        <button class="button button-ghost replay-button" type="button">Replay this little moment <span>↗</span></button>
+      </div>
+      <footer>made with a little thought · 2026</footer>
+    </section>
+  </main>
+
+  <audio id="background-audio" loop preload="metadata" src="public/audio/hopeless-romantic.mp3"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
