@@ -8,6 +8,7 @@
   <title>A Little Something for Tedd</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -25,9 +26,9 @@
       <a href="#closing">One last thing</a>
     </nav>
     <div class="music-player" aria-label="Background soundtrack">
+      <div class="music-track"><span class="music-label">Hopeless Romantic — KWN</span><small>Spotify · sign-in or preview may apply</small></div>
       <button class="music-control play-control" type="button" aria-label="Play background music" aria-pressed="false">▶</button>
-      <div class="music-track"><span class="music-label">Hopeless Romantic</span><small>KWN · background soundtrack</small></div>
-      <button class="music-control mute-control" type="button" aria-label="Mute background music" aria-pressed="false">sound</button>
+      <div class="spotify-embed-shell"><div class="spotify-embed" id="spotify-embed"></div></div>
     </div>
   </header>
 
@@ -146,7 +147,6 @@
     </section>
   </main>
 
-  <audio id="background-audio" loop preload="metadata" src="public/audio/hopeless-romantic.mp3"></audio>
   <script src="script.js"></script>
 </body>
 </html>

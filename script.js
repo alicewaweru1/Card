@@ -41,7 +41,8 @@ const birthdayContent = {
   music: {
     title: "Hopeless Romantic",
     artist: "KWN",
-    source: "public/audio/hopeless-romantic.mp3",
+    trackId: "4IFgAd6OdFhKlDDxwBX8In",
+    embedUrl: "https://open.spotify.com/embed/track/4IFgAd6OdFhKlDDxwBX8In?theme=0",
     bonusTitle: "Blessed",
     bonusArtist: "Daniel Caesar",
     bonusUrl: "https://open.spotify.com/search/Blessed%20Daniel%20Caesar"
@@ -148,10 +149,9 @@ $$(".desktop-nav a").forEach(link => link.addEventListener("click", event => {
   scrollToSection(link.getAttribute("href").slice(1));
 }));
 
-const backgroundAudio = $("#background-audio");
 const playControl = $(".play-control");
-const muteControl = $(".mute-control");
-let soundtrackUnavailableLogged = false;
+let spotifyController = null;
+let spotifyIsPlaying = false;
 
 function setPlaybackState(isPlaying) {
   playControl.textContent = isPlaying ? "❚❚" : "▶";
@@ -159,39 +159,30 @@ function setPlaybackState(isPlaying) {
   playControl.setAttribute("aria-pressed", String(isPlaying));
 }
 
-async function startSoundtrack() {
-  try {
-    await backgroundAudio.play();
-    setPlaybackState(true);
-  } catch {
-    setPlaybackState(false);
-    if (!soundtrackUnavailableLogged) {
-      console.warn(`Background soundtrack unavailable: ${birthdayContent.music.source}`);
-      soundtrackUnavailableLogged = true;
-    }
+function startSoundtrack() {
+  if (spotifyController) {
+    spotifyController.play();
+  } else {
+    console.info("Spotify background player is still loading.");
   }
 }
 
 playControl.addEventListener("click", () => {
-  if (backgroundAudio.paused) startSoundtrack();
-  else {
-    backgroundAudio.pause();
-    setPlaybackState(false);
-  }
+  if (!spotifyController) return;
+  if (spotifyIsPlaying) spotifyController.pause();
+  else spotifyController.play();
 });
 
-muteControl.addEventListener("click", () => {
-  backgroundAudio.muted = !backgroundAudio.muted;
-  muteControl.textContent = backgroundAudio.muted ? "muted" : "sound";
-  muteControl.setAttribute("aria-label", backgroundAudio.muted ? "Unmute background music" : "Mute background music");
-  muteControl.setAttribute("aria-pressed", String(backgroundAudio.muted));
-});
-
-backgroundAudio.addEventListener("play", () => setPlaybackState(true));
-backgroundAudio.addEventListener("pause", () => setPlaybackState(false));
-backgroundAudio.addEventListener("error", () => {
-  if (!soundtrackUnavailableLogged) {
-    console.warn(`Background soundtrack unavailable: ${birthdayContent.music.source}`);
-    soundtrackUnavailableLogged = true;
-  }
-});
+window.onSpotifyIframeApiReady = IFrameAPI => {
+  IFrameAPI.createController($("#spotify-embed"), {
+    uri: `spotify:track:${birthdayContent.music.trackId}`,
+    width: 220,
+    height: 80
+  }, EmbedController => {
+    spotifyController = EmbedController;
+    EmbedController.addListener("playback_update", event => {
+      spotifyIsPlaying = !event.data.isPaused;
+      setPlaybackState(spotifyIsPlaying);
+    });
+  });
+};

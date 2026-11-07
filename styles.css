@@ -175,6 +175,9 @@ blockquote { font: 500 clamp(2rem, 4.5vw, 4.6rem)/1.12 var(--serif); letter-spac
 .music-track { display: grid; gap: 2px; min-width: 145px; }
 .music-track .music-label { color: var(--ivory); font-size: .67rem; letter-spacing: .04em; }
 .music-track small { color: var(--muted); font-size: .52rem; letter-spacing: .08em; text-transform: uppercase; }
+.spotify-embed-shell { width: 220px; height: 80px; overflow: hidden; border-radius: 10px; }
+.spotify-embed-shell iframe { display: block; width: 100%; height: 80px; border: 0; }
+.spotify-embed { width: 100%; height: 80px; }
 .music-invitation { color: var(--muted); font-size: .67rem; letter-spacing: .06em; margin-top: 21px; }
 .bonus-song { max-width: 620px; margin: 55px auto 0; padding: 34px clamp(25px, 5vw, 55px); text-align: center; background: rgba(16,24,39,.32); }
 .bonus-song h3 { font: 500 clamp(1.9rem, 3vw, 2.8rem) var(--serif); margin: 12px 0; }
@@ -184,4 +187,5 @@ blockquote { font: 500 clamp(2rem, 4.5vw, 4.6rem)/1.12 var(--serif); letter-spac
   .music-track { min-width: 0; max-width: 118px; }
   .music-track .music-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .music-control { min-width: 32px; padding: 0 8px; }
+  .spotify-embed-shell { position: fixed; right: 12px; bottom: 12px; z-index: 26; width: min(230px, calc(100vw - 24px)); box-shadow: 0 12px 30px rgba(0,0,0,.35); }
 }
